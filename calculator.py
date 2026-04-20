@@ -7,7 +7,7 @@ def calculate():
     while continueCalculation == True:
         firstNum = int(input("Input first number: "))
         secondNum = int(input("Input second number: "))
-        operator = input("Enter operator (+, -, *, /): ")
+        operator = input("Enter operator (+, -, *, /, or type exit to quit): ")
         
         if operator == "+":
             print(f"{firstNum + secondNum}")
@@ -20,15 +20,19 @@ def calculate():
                 print(f"{firstNum / secondNum}")
             else:
                 print("Error: Cannot divide by zero")
+        elif operator.lower() == "exit":
+            break
         else:
-            print("Invalid operator")
+            print("Invalid operator!")
+            continue
             
-        next_calculation = input("Do you want to calculate again? (Yes/No)")
-        if next_calculation == "No":
-            continueCalculation = False
-    
-
-
-
+        nextCalculation = input("Do you want to calculate again? (Yes / No)")
+        if nextCalculation.lower() == "yes":
+            continue
+        elif nextCalculation.lower() == "no":
+            break
+        else:
+            print("Invalid input! Type yes or no")
+            continue
 main()
         
